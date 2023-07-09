@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="es">
+  <title>Tabla de alimentos</title>
+  <link rel="shortcut icon" href="imagenes/boston-public-library-n8bts8tWfe4-unsplash.jpg">
+  <meta name="viewport"content="width=device-width,initial-scale=1.0">
+  <meta name="author" content="Jaime Frutos Perez-Surio">
+  <link rel="stylesheet" type="text/css" href="alimentos.css">
+</head>
+<body>
+  <input type="text" id="search-input" placeholder="Buscar alimento">
+  <input type="number" id="grams-input" placeholder="Gramos">
+  <div id="result-container"></div>
+
+  <table id="food-table">
+    <thead>
+      <tr>
+        <th class="sortable" data-column="tipo">Tipo</th>
+        <th class="sortable" data-column="nombre">Nombre</th>
+        <th class="sortable" data-column="hidratos">Hidratos</th>
+        <th class="sortable" data-column="glucemico">Índice Glucémico</th>
+        <th>URL</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se agregarán las filas de alimentos dinámicamente -->
+    </tbody>
+  </table>
+
+  <footer>
+    <p>© 2023 Jaime Frutos Perez-Surio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
