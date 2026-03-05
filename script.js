@@ -278,14 +278,22 @@ function filterFoods(searchTerm) {
 }
 
 function calculateRations() {
-  const selectedFood = foods.find(food => food.nombre.toLowerCase() === searchInput.value.toLowerCase());
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const selectedFood = foods.find(food =>
+    food.nombre.toLowerCase().includes(searchTerm)
+  );
+
   const grams = parseFloat(gramsInput.value);
 
   if (selectedFood && !isNaN(grams)) {
     const rations = grams / selectedFood.hidratos;
-    resultContainer.textContent = `Corresponden a ${rations.toFixed(2)} raciones de hidratos.`;
+
+    resultContainer.textContent =
+      "Corresponden a " + rations.toFixed(2) + " raciones de hidratos.";
   } else {
-    resultContainer.textContent = 'Ingrese un alimento válido y una cantidad de gramos.';
+    resultContainer.textContent =
+      "Ingrese un alimento válido y una cantidad de gramos.";
   }
 }
 
