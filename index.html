@@ -3,37 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Language" content="es">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Jaime Frutos Perez-Surio">
   <title>Tabla de alimentos</title>
   <link rel="shortcut icon" href="imagenes/boston-public-library-n8bts8tWfe4-unsplash.jpg">
-  <meta name="viewport"content="width=device-width,initial-scale=1.0">
-  <meta name="author" content="Jaime Frutos Perez-Surio">
   <link rel="stylesheet" type="text/css" href="alimentos.css">
 </head>
 <body>
-  <input type="text" id="search-input" placeholder="Buscar alimento">
-  <input type="number" id="grams-input" placeholder="Gramos">
-  <div id="result-container"></div>
+  <div class="top-controls">
+    <input type="text" id="search-input" placeholder="Buscar alimento">
+    <input type="number" id="grams-input" placeholder="Gramos">
+  </div>
 
-  <table id="food-table">
-    <thead>
-      <tr>
-        <th class="sortable" data-column="tipo">Tipo</th>
-        <th class="sortable" data-column="nombre">Nombre</th>
-        <th class="sortable" data-column="hidratos">Hidratos</th>
-        <th class="sortable" data-column="glucemico">Índice Glucémico</th>
-        <th>URL</th>
-        <th>Imagen</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Aquí se agregarán las filas de alimentos dinámicamente -->
-    </tbody>
-  </table>
+  <div class="top-content">
+    <div id="result-container"></div>
 
-<footer>
-  <p>© 2023 Jaime Frutos Perez-Surio. Todos los derechos reservados.</p>
-</footer>
+    <div class="table-wrapper">
+      <table id="food-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-column="tipo">Tipo</th>
+            <th class="sortable" data-column="nombre">Nombre</th>
+            <th class="sortable" data-column="hidratos">Gramos por ración</th>
+            <th class="sortable" data-column="glucemico">Índice glucémico</th>
+            <th>URL</th>
+            <th>Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se agregarán las filas de alimentos dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<script src="js/app.js"></script>
+  <footer>
+    <p>© 2023 Jaime Frutos Perez-Surio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
