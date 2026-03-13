@@ -12,8 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const gramsInput = document.getElementById("grams-input");
   const resultContainer = document.getElementById("result-container");
 
+  function slugify(text) {
+    return text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/ñ/g, "n")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
   function createTableRow(food) {
     const row = document.createElement("tr");
+    const imagePath = `imagenes/${slugify(food.nombre)}.webp`;
 
     row.innerHTML = `
       <td data-label="Tipo"><span>${food.tipo}</span></td>
@@ -22,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <td data-label="Índice glucémico"><span>${food.glucemico}</span></td>
       <td data-label="URL"><a href="${food.url}" target="_blank" rel="noopener noreferrer">Saber más</a></td>
       <td data-label="Imagen">
-        <img src="${food.imagen}" alt="${food.nombre}" onerror="this.onerror=null;this.src='imagenes/no-disponible.webp';">
+        <img src="${imagePath}" alt="${food.nombre}" onerror="this.onerror=null;this.src='imagenes/no-disponible.webp';">
       </td>
     `;
 
