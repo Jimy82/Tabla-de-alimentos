@@ -22,9 +22,44 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/^-+|-+$/g, "");
   }
 
+  function getImageCandidates(food) {
+    const slug = slugify(food.nombre);
+
+    const candidates = [];
+
+    if (food.imagen && typeof food.imagen === "string") {
+      candidates.push(food.imagen);
+    }
+
+    candidates.push(`imagenes/${slug}.webp`);
+    candidates.push(`imagenes/${slug}.jpg`);
+    candidates.push(`imagenes/${slug}.jpeg`);
+    candidates.push(`imagenes/${slug}.png`);
+
+    return [...new Set(candidates)];
+  }
+
+  function attachImageFallback(img, candidates) {
+    let index = 0;
+
+    function tryNext() {
+      index++;
+
+      if (index < candidates.length) {
+        img.src = candidates[index];
+      } else {
+        img.onerror = null;
+        img.src = "imagenes/no-disponible.webp";
+      }
+    }
+
+    img.onerror = tryNext;
+    img.src = candidates[0];
+  }
+
   function createTableRow(food) {
     const row = document.createElement("tr");
-    const imagePath = `imagenes/${slugify(food.nombre)}.webp`;
+    const candidates = getImageCandidates(food);
 
     row.innerHTML = `
       <td data-label="Tipo"><span>${food.tipo}</span></td>
@@ -32,10 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <td data-label="Gramos por ración"><span>${food.hidratos}</span></td>
       <td data-label="Índice glucémico"><span>${food.glucemico}</span></td>
       <td data-label="URL"><a href="${food.url}" target="_blank" rel="noopener noreferrer">Saber más</a></td>
-      <td data-label="Imagen">
-        <img src="${imagePath}" alt="${food.nombre}" onerror="this.onerror=null;this.src='imagenes/no-disponible.webp';">
-      </td>
+      <td data-label="Imagen"><img alt="${food.nombre}"></td>
     `;
+
+    const img = row.querySelector("img");
+    attachImageFallback(img, candidates);
 
     return row;
   }
