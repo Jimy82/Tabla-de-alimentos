@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <td data-label="Gramos por ración"><span>${food.hidratos}</span></td>
       <td data-label="Índice glucémico"><span>${food.glucemico}</span></td>
       <td data-label="URL"><a href="${food.url}" target="_blank" rel="noopener noreferrer">Saber más</a></td>
-      <td data-label="Imagen"><img src="${food.imagen}" alt="${food.nombre}"></td>
+      <td data-label="Imagen">
+        <img src="${food.imagen}" alt="${food.nombre}" onerror="this.onerror=null;this.src='imagenes/no-disponible.webp';">
+      </td>
     `;
 
     return row;
