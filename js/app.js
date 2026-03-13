@@ -25,16 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function getImageCandidates(food) {
     const slug = slugify(food.nombre);
 
-    const candidates = [];
+    const candidates = [
+      `imagenes/${slug}.webp`,
+      `imagenes/${slug}.jpg`,
+      `imagenes/${slug}.jpeg`,
+      `imagenes/${slug}.png`
+    ];
 
     if (food.imagen && typeof food.imagen === "string") {
       candidates.push(food.imagen);
     }
-
-    candidates.push(`imagenes/${slug}.webp`);
-    candidates.push(`imagenes/${slug}.jpg`);
-    candidates.push(`imagenes/${slug}.jpeg`);
-    candidates.push(`imagenes/${slug}.png`);
 
     return [...new Set(candidates)];
   }
