@@ -1,4 +1,4 @@
-console.log("APP JS CARGADO");
+console.log("APP JS CARGADO v2");
 
 document.addEventListener("DOMContentLoaded", () => {
   let foods = [];
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const gramsInput = document.getElementById("grams-input");
   const resultContainer = document.getElementById("result-container");
+  const themeToggle = document.getElementById("theme-toggle");
 
   function slugify(text) {
     return text
@@ -20,6 +21,27 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/ñ/g, "n")
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
+  }
+
+  function applyTheme(theme) {
+    if (theme === "light") {
+      document.body.classList.add("light-mode");
+      if (themeToggle) themeToggle.textContent = "Modo oscuro";
+    } else {
+      document.body.classList.remove("light-mode");
+      if (themeToggle) themeToggle.textContent = "Modo claro";
+    }
+  }
+
+  function initTheme() {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+  }
+
+  function toggleTheme() {
+    const newTheme = document.body.classList.contains("light-mode") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    applyTheme(newTheme);
   }
 
   function getImageCandidates(food) {
@@ -159,12 +181,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gramsInput.addEventListener("input", calculateRations);
 
+  if (themeToggle) {
+    themeToggle.onclick = toggleTheme;
+  }
+
   document.querySelectorAll(".sortable").forEach(header => {
     header.addEventListener("click", () => {
       const column = header.dataset.column;
       sortFoods(column);
     });
   });
+
+  initTheme();
 
   fetch("foods.json")
     .then(res => res.json())
