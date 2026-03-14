@@ -154,6 +154,35 @@ table{
   font-weight:700;
 }
 
+.nombre-alimento{
+  font-size:17px;
+  font-weight:700;
+  color:var(--text-main);
+}
+
+.gramos-racion{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  max-width:max-content;
+  padding:4px 12px;
+  border-radius:999px;
+  background:rgba(91,140,255,.16);
+  border:1px solid rgba(91,140,255,.30);
+  color:#9fc0ff;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+body.light-mode .gramos-racion{
+  background:rgba(61,109,242,.10);
+  border:1px solid rgba(61,109,242,.22);
+  color:#2f5edb;
+}
+
 /* HEADER */
 
 th{
@@ -356,6 +385,24 @@ td[data-label="Imagen"]::before{
 }
 
 td[data-label="Imagen"] img{
+  margin-left:0;
+  margin-right:auto;
+}
+
+.nombre-alimento{
+  font-size:18px;
+}
+
+.gramos-racion{
+  font-size:16px;
+  padding:5px 12px;
+}
+
+td[data-label="Gramos por ración"]{
+  align-items:center;
+}
+
+td[data-label="Gramos por ración"] .gramos-racion{
   margin-left:0;
   margin-right:auto;
 }

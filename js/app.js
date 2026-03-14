@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     row.innerHTML = `
       <td data-label="Tipo"><span>${food.tipo}</span></td>
-      <td data-label="Nombre"><span>${food.nombre}</span></td>
-      <td data-label="Gramos por ración"><span>${food.hidratos}</span></td>
+      <td data-label="Nombre"><span class="nombre-alimento">${food.nombre}</span></td>
+<td data-label="Gramos por ración"><span class="gramos-racion">${food.hidratos} g</span></td>
       <td data-label="Índice glucémico">
         <span class="${getGlucemicoClass(food.glucemico)}">${food.glucemico}</span>
       </td>
