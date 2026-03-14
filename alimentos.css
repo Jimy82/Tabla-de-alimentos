@@ -82,6 +82,7 @@ body.light-mode{
 input,
 #theme-toggle{
   padding:10px 14px;
+  min-height:44px;
   border-radius:8px;
   border:1px solid var(--border-soft);
   background:var(--bg-soft);
@@ -134,6 +135,23 @@ body.light-mode .table-wrapper{
 table{
   width:100%;
   border-collapse:collapse;
+}
+
+/* COLORES INDICE GLUCEMICO */
+
+.glucemico-bajo{
+  color:#22c55e;
+  font-weight:700;
+}
+
+.glucemico-medio{
+  color:#f59e0b;
+  font-weight:700;
+}
+
+.glucemico-alto{
+  color:#ef4444;
+  font-weight:700;
 }
 
 /* HEADER */
@@ -242,16 +260,33 @@ footer{
 
 @media (max-width:650px){
 
+  body{
+    padding:14px;
+  }
+
   .top-controls{
     flex-direction:column;
-    gap:12px;
-    margin-bottom:16px;
+    gap:10px;
+    margin-bottom:14px;
   }
 
   .top-controls input,
   #theme-toggle{
     width:100%;
     min-width:0;
+    flex:0 0 auto;
+    padding:12px 14px;
+    font-size:16px;
+    border-radius:10px;
+  }
+
+  .top-controls input{
+    height:48px;
+  }
+
+  #result-container{
+    font-size:16px;
+    margin-bottom:14px;
   }
 
   table,
@@ -269,9 +304,9 @@ footer{
   }
 
   tbody tr{
-    margin-bottom:16px;
+    margin-bottom:14px;
     background:var(--bg-soft);
-    border-radius:12px;
+    border-radius:14px;
     padding:14px;
     box-shadow:0 10px 30px rgba(0,0,0,.5);
   }
@@ -284,26 +319,45 @@ footer{
     border:none;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    padding:8px 0;
-    font-size:14px;
+    align-items:flex-start;
+    gap:14px;
+    padding:10px 0;
+    font-size:16px;
+    line-height:1.4;
   }
 
   td::before{
     content:attr(data-label);
-    font-weight:600;
+    font-weight:700;
     color:var(--text-soft);
-    flex:0 0 45%;
+    flex:0 0 62%;
+    font-size:15px;
   }
 
   td span,
-  td a,
-  td img{
+  td a{
     flex:1;
+    text-align:left;
+    font-size:16px;
   }
 
   td img{
+    width:96px;
+    height:96px;
     margin-left:auto;
+    border-radius:12px;
   }
+  td[data-label="Imagen"]{
+  align-items:center;
+}
+
+td[data-label="Imagen"]::before{
+  align-self:center;
+}
+
+td[data-label="Imagen"] img{
+  margin-left:0;
+  margin-right:auto;
+}
+
 }

@@ -23,6 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/^-+|-+$/g, "");
   }
 
+  function getGlucemicoClass(valor) {
+    if (valor < 50) {
+      return "glucemico-bajo";
+    }
+
+    if (valor <= 75) {
+      return "glucemico-medio";
+    }
+
+    return "glucemico-alto";
+  }
+
   function applyTheme(theme) {
     if (theme === "light") {
       document.body.classList.add("light-mode");
@@ -87,7 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <td data-label="Tipo"><span>${food.tipo}</span></td>
       <td data-label="Nombre"><span>${food.nombre}</span></td>
       <td data-label="Gramos por ración"><span>${food.hidratos}</span></td>
-      <td data-label="Índice glucémico"><span>${food.glucemico}</span></td>
+      <td data-label="Índice glucémico">
+        <span class="${getGlucemicoClass(food.glucemico)}">${food.glucemico}</span>
+      </td>
       <td data-label="URL"><a href="${food.url}" target="_blank" rel="noopener noreferrer">Saber más</a></td>
       <td data-label="Imagen"><img alt="${food.nombre}"></td>
     `;
