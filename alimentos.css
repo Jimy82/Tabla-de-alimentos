@@ -56,6 +56,47 @@ body.light-mode{
     linear-gradient(#f7f9fc, #edf2f8);
 }
 
+/* CABECERA / LOGO */
+
+.site-header{
+  max-width:1100px;
+  margin:0 auto 20px auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:8px 0 4px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-align:left;
+  width:100%;
+}
+
+.site-logo{
+  width:110px;
+  max-width:110px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+.brand-text h1{
+  margin:0;
+  font-size:2rem;
+  line-height:1.1;
+  color:var(--text-main);
+}
+
+.brand-text p{
+  margin:6px 0 0;
+  font-size:1rem;
+  color:var(--text-soft);
+}
+
 /* CONTENIDO SUPERIOR */
 
 .top-content{
@@ -123,7 +164,7 @@ input::placeholder{
   background:var(--bg-soft-2);
 }
 
-/* BOTON DONATIVO / STRIPE */
+/* BOTON DONATIVO */
 
 .stripe-button{
   display:inline-flex;
@@ -226,7 +267,7 @@ body.light-mode .gramos-racion{
   color:#2f5edb;
 }
 
-/* HEADER */
+/* HEADER TABLA */
 
 th{
   background:linear-gradient(135deg, var(--primary), var(--primary-2));
@@ -236,6 +277,9 @@ th{
   letter-spacing:.05em;
   text-transform:uppercase;
   text-align:left;
+}
+
+th.sortable{
   cursor:pointer;
 }
 
@@ -280,7 +324,7 @@ td a:hover{
   text-decoration:underline;
 }
 
-/* IMAGEN */
+/* IMAGENES TABLA */
 
 td img{
   width:60px;
@@ -317,9 +361,13 @@ footer{
 /* TABLET */
 
 @media (max-width:900px){
-
   body{
     padding:20px;
+  }
+
+  .site-logo{
+    width:95px;
+    max-width:95px;
   }
 
   td img{
@@ -330,10 +378,35 @@ footer{
 
 /* MOVIL / TABLET PEQUEÑA */
 
-@media (max-width:900px){
-
+@media (max-width:650px){
   body{
     padding:14px;
+  }
+
+  .site-header{
+    margin-bottom:14px;
+    padding:4px 0;
+  }
+
+  .brand{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    gap:10px;
+  }
+
+  .site-logo{
+    width:88px;
+    max-width:88px;
+  }
+
+  .brand-text h1{
+    font-size:1.6rem;
+  }
+
+  .brand-text p{
+    font-size:.95rem;
+    margin-top:4px;
   }
 
   .top-controls{
@@ -418,6 +491,7 @@ footer{
     width:96px;
     height:96px;
     margin-left:auto;
+    margin-right:0;
     border-radius:12px;
   }
 
