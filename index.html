@@ -5,28 +5,11 @@
   <meta http-equiv="Content-Language" content="es">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Jaime Frutos Perez-Surio">
-  <meta name="description" content="DiabyteBase - Tabla de alimentos para diabetes, hidratos de carbono e índice glucémico.">
-  <title>DiabyteBase | Tabla de alimentos</title>
-
-  <link rel="icon" type="image/png" href="./imagenes/logo-diabytebase.png">
+  <title>Tabla de alimentos</title>
+  <link rel="shortcut icon" href="imagenes/boston-public-library-n8bts8tWfe4-unsplash.jpg">
   <link rel="stylesheet" type="text/css" href="alimentos.css">
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="brand">
-      <img
-        src="./imagenes/logo-diabytebase.png"
-        alt="Logotipo de DiabyteBase"
-        class="site-logo"
-      >
-      <div class="brand-text">
-        <h1>DiabyteBase</h1>
-        <p>Tabla de alimentos</p>
-      </div>
-    </div>
-  </header>
-
   <div class="top-controls">
     <input type="text" id="search-input" placeholder="Buscar alimento">
     <input type="number" id="grams-input" placeholder="Gramos">
@@ -34,7 +17,7 @@
     <button
       class="stripe-button"
       type="button"
-      onclick="window.open('https://ko-fi.com/diabytebase', '_blank')"
+      onclick="window.location.href='https://ko-fi.com/diabytebase'"
     >
       Donativo
     </button>
@@ -56,15 +39,29 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Aquí se agregarán las filas dinámicamente -->
+          <!-- Aquí se agregarán las filas de alimentos dinámicamente -->
         </tbody>
       </table>
     </div>
   </div>
 
-  <footer>
-    <p>© 2026 Jaime Frutos Perez-Surio. Todos los derechos reservados.</p>
-  </footer>
+  <footer class="site-footer">
+  <p class="footer-brand">© 2023–2026 DiabyteBase · Creado por Jaime Frutos Perez-Surio</p>
+
+  <p class="footer-contact">
+    Contacto, sugerencias y correcciones:
+    <a href="mailto:DiabyteBase@gmail.com">DiabyteBase@gmail.com</a>
+  </p>
+
+  <p class="footer-support">
+    DiabyteBase es un proyecto independiente. Si quieres contribuir a su mantenimiento y mejora, puedes apoyar la página con
+    <a href="https://ko-fi.com/diabytebase" target="_blank" rel="noopener noreferrer">Donativo.</a>
+  </p>
+
+  <p class="footer-note">
+    La información mostrada tiene carácter orientativo y no sustituye el asesoramiento de un profesional sanitario.
+  </p>
+</footer>
 
   <script src="js/app.js"></script>
 </body>
